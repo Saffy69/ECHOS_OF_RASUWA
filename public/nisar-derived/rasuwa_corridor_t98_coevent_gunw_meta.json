@@ -1,0 +1,37 @@
+{
+  "id": "rasuwa_corridor_t98_coevent_gunw",
+  "region_id": "rasuwa_nepal",
+  "region_name": "Rasuwa, Nepal (Trishuli / Bhote Koshi Valley Corridor)",
+  "type": "CALIBRATED_PRODUCT",
+  "product": "NISAR L2 GUNW Co-Event InSAR Pair (Track 98 Ascending)",
+  "layer_type": "unwrapped_phase_and_coherence",
+  "granule_id": "NISAR_L2_PR_GUNW_028_098_A_016_029_4000_SH_20260819T233918_20260819T233953_20260831T233918_20260831T233952_P05023_N_F_J_001",
+  "collection": "GUNW",
+  "track": "98",
+  "frame": "16",
+  "direction": "ASCENDING",
+  "look_angle_degrees": 37.0,
+  "heading_degrees": 348.0,
+  "reference_date": "2026-08-19",
+  "secondary_date": "2026-08-31",
+  "spanning_event": "2026-08-26 Debris Flow & Flood",
+  "bbox": [
+    85.12,
+    28.08,
+    85.53,
+    28.39
+  ],
+  "width_px": 256,
+  "height_px": 256,
+  "units": "cm line-of-sight displacement (LOS) / [0, 1] coherence",
+  "interpretation": {
+    "coherence_loss": "Monsoon rain, active debris flow, and steep topography cause severe decorrelation (<0.3) along active channels",
+    "stable_ridges": "Upper ridge crests retain coherence > 0.5",
+    "null_result": "No pre-event deformation precursor detectable due to 12-day revisit and monsoon atmospheric noise"
+  },
+  "provenance": "Authentic NASA Earthdata / ASF DAAC NISAR L2 GUNW product",
+  "credit_license": "NASA/JPL-Caltech/ISRO via Alaska Satellite Facility (ASF) DAAC (Open Data Policy)",
+  "local_raster_path": "/nisar-derived/rasuwa_corridor_t98_coevent_gunw.png",
+  "sha256": "f474093c0f3780048644f26f2f219c318103b58685c1d728e9411a8eca47e0d9",
+  "file_size_bytes": 138742
+}

@@ -1,0 +1,516 @@
+/* laliGuideAssistant.css — In-Game Companion Dock & Guidebook Modal */
+
+/* 1. FLOATING COMPANION TOAST (Bottom-Right Dock) */
+.lali-companion-dock {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: auto;
+  font-family: inherit;
+}
+
+.lali-dock-bubble {
+  background: var(--game-panel, #1e3024);
+  border: 2px solid var(--game-line, #596a4d);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--game-ink, #243025), 0 4px 16px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  max-width: 380px;
+  color: var(--game-text, #ebe3c5);
+  transition: all 0.2s ease;
+}
+
+.lali-companion-dock.collapsed .lali-dock-bubble {
+  padding: 4px 8px;
+  background: var(--game-screen, #14251c);
+  border-color: var(--game-accent, #d5b66b);
+  cursor: pointer;
+}
+
+.lali-mini-portrait-box {
+  width: 44px;
+  height: 44px;
+  background: var(--game-screen, #14251c);
+  border: 2px solid var(--game-accent, #d5b66b);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 1px 1px 0 var(--game-ink, #243025);
+}
+
+.lali-mini-portrait {
+  width: 36px;
+  height: 36px;
+  image-rendering: pixelated;
+}
+
+.lali-mini-tag {
+  position: absolute;
+  bottom: -4px;
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  font-size: 0.55rem;
+  font-weight: 800;
+  padding: 1px 3px;
+  border-radius: 2px;
+  line-height: 1;
+}
+
+.lali-dock-speech {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lali-dock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lali-dock-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--game-accent, #d5b66b);
+  letter-spacing: 0.04em;
+}
+
+.lali-dock-btns {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lali-mini-audio-btn,
+.lali-mini-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--game-muted, #b6c0a4);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+.lali-mini-audio-btn:hover,
+.lali-mini-close-btn:hover {
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-dock-text {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-dock-action-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  border: none;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 1px 1px 0 var(--game-ink, #243025);
+}
+
+.lali-dock-action-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* 2. FULL INTERACTIVE GUIDEBOOK MODAL */
+.lali-guidebook-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(10, 20, 14, 0.85);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  user-select: none;
+}
+
+.lali-guidebook-chassis {
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  background: var(--game-screen, #14251c);
+  border: 3px solid var(--game-case, #c5bb9c);
+  border-radius: 6px;
+  box-shadow: 6px 6px 0 var(--game-ink, #243025), 0 12px 36px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-guidebook-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--game-key, #2c3e2c);
+  border-bottom: 2px solid var(--game-line, #596a4d);
+}
+
+.lali-guidebook-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.lali-guidebook-badge {
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.lali-guidebook-subtitle {
+  font-size: 0.8rem;
+  color: var(--game-muted, #b6c0a4);
+}
+
+.lali-guidebook-close-btn {
+  background: transparent;
+  border: 1px solid var(--game-line, #596a4d);
+  color: var(--game-muted, #b6c0a4);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lali-guidebook-close-btn:hover {
+  color: var(--game-accent, #d5b66b);
+  border-color: var(--game-accent, #d5b66b);
+}
+
+/* TAB NAVIGATION */
+.lali-guidebook-tabs {
+  display: flex;
+  background: var(--game-panel, #1e3024);
+  border-bottom: 2px solid var(--game-line, #596a4d);
+  padding: 0 12px;
+  gap: 6px;
+}
+
+.lali-tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--game-muted, #b6c0a4);
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lali-tab-btn:hover {
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-tab-btn.active {
+  color: var(--game-accent, #d5b66b);
+  border-bottom-color: var(--game-accent, #d5b66b);
+}
+
+/* BODY */
+.lali-guidebook-body {
+  padding: 18px 20px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.lali-guide-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lali-guide-panel.center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.lali-guide-card {
+  background: var(--game-panel, #1e3024);
+  border: 2px solid var(--game-line, #596a4d);
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.lali-guide-card.highlight {
+  border-color: var(--game-accent, #d5b66b);
+  background: rgba(213, 182, 107, 0.08);
+}
+
+.lali-guide-card-icon {
+  font-size: 1.8rem;
+}
+
+.lali-guide-card-title {
+  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-guide-card-text {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--game-text, #ebe3c5);
+}
+
+/* CHECKLIST */
+.lali-guide-quest-summary {
+  background: var(--game-panel, #1e3024);
+  border: 1px solid var(--game-line, #596a4d);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lali-beacons-checklist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.lali-beacon-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--game-muted, #b6c0a4);
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+
+.lali-beacon-item.done {
+  color: var(--game-safe, #7ec794);
+  background: rgba(126, 199, 148, 0.08);
+}
+
+.lali-guide-quick-links {
+  display: flex;
+  gap: 12px;
+}
+
+/* CONTROLS GRID */
+.lali-controls-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.lali-control-item {
+  background: var(--game-panel, #1e3024);
+  border: 1px solid var(--game-line, #596a4d);
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lali-key-badge {
+  display: inline-block;
+  background: var(--game-screen, #14251c);
+  border: 1px solid var(--game-accent, #d5b66b);
+  color: var(--game-accent, #d5b66b);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+
+.lali-control-item strong {
+  font-size: 0.82rem;
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-control-item p {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--game-muted, #b6c0a4);
+}
+
+/* RADAR CHEAT SHEET */
+.lali-radar-cheat-sheet {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.lali-cheat-card {
+  background: var(--game-panel, #1e3024);
+  border: 2px solid var(--game-line, #596a4d);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lali-cheat-card.cyan {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.lali-cheat-card.dark {
+  border-color: #64748b;
+  background: rgba(100, 116, 139, 0.08);
+}
+
+.lali-cheat-card.rainbow {
+  border-color: var(--game-accent, #d5b66b);
+  background: rgba(213, 182, 107, 0.08);
+}
+
+.lali-cheat-card.warning {
+  border-color: var(--game-danger, #d9685b);
+  background: rgba(217, 104, 91, 0.08);
+}
+
+.lali-cheat-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.lali-cheat-card.cyan .lali-cheat-badge {
+  color: #38bdf8;
+}
+
+.lali-cheat-card.dark .lali-cheat-badge {
+  color: #94a3b8;
+}
+
+.lali-cheat-card.rainbow .lali-cheat-badge {
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-cheat-card.warning .lali-cheat-badge {
+  color: var(--game-danger, #d9685b);
+}
+
+.lali-cheat-card strong {
+  font-size: 0.85rem;
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-cheat-card p {
+  margin: 0;
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: var(--game-muted, #b6c0a4);
+}
+
+/* STORY LAUNCH CARD */
+.lali-story-launch-card {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: var(--game-panel, #1e3024);
+  border: 2px solid var(--game-accent, #d5b66b);
+  border-radius: 6px;
+}
+
+.lali-story-launch-card h3 {
+  margin: 0;
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-story-launch-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--game-text, #ebe3c5);
+}
+
+/* FOOTER */
+.lali-guidebook-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 18px;
+  background: var(--game-key, #2c3e2c);
+  border-top: 2px solid var(--game-line, #596a4d);
+}
+
+.lali-footer-quote {
+  font-size: 0.72rem;
+  color: var(--game-muted, #b6c0a4);
+  font-style: italic;
+  max-width: 500px;
+}
+
+/* 3. IN-APP COMPACT BANNERS (Intervention & Globe) */
+.lali-intervention-guide-box,
+.lali-globe-note-box {
+  background: var(--game-panel);
+  border: 1px solid var(--game-accent);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lali-guide-emoji {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.lali-guide-content {
+  flex: 1;
+  font-size: 0.78rem;
+  color: var(--game-text);
+  line-height: 1.4;
+}
+
+.lali-guide-content strong {
+  color: var(--game-accent);
+}

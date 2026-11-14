@@ -1,0 +1,665 @@
+/* laliStoryMode.css — Clean, Visual-First Story Mode with Lali */
+
+.lali-story-container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--game-screen, #14251c);
+  display: flex;
+  flex-direction: column;
+  color: var(--game-text, #ebe3c5);
+  overflow: hidden;
+  user-select: none;
+  font-family: inherit;
+}
+
+/* TOP HEADER */
+.lali-story-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 18px;
+  background: var(--game-key, #2c3e2c);
+  border-bottom: 2px solid var(--game-line, #596a4d);
+  flex-shrink: 0;
+}
+
+.lali-story-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lali-story-badge {
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+}
+
+.lali-story-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-story-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lali-lang-toggle-btn {
+  background: var(--game-panel, #1e3024);
+  border: 1px solid var(--game-line, #596a4d);
+  color: var(--game-text, #ebe3c5);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lali-lang-toggle-btn:hover {
+  border-color: var(--game-accent, #d5b66b);
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-voice-toggle-btn {
+  background: var(--game-panel, #1e3024);
+  border: 1px solid var(--game-line, #596a4d);
+  color: var(--game-text, #ebe3c5);
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.lali-voice-toggle-btn.active {
+  border-color: var(--game-accent, #d5b66b);
+  color: var(--game-accent, #d5b66b);
+  background: rgba(213, 182, 107, 0.12);
+}
+
+.lali-skip-btn {
+  background: transparent;
+  border: 1px dashed var(--game-line, #596a4d);
+  color: var(--game-muted, #b6c0a4);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lali-skip-btn:hover {
+  color: var(--game-text, #ebe3c5);
+  border-color: var(--game-accent, #d5b66b);
+}
+
+/* MAIN VISUAL STAGE */
+.lali-stage-area {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 12px 18px;
+}
+
+.lali-stage-canvas-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  max-height: 500px;
+  background: #08110c;
+  border: 3px solid var(--game-case, #c5bb9c);
+  border-radius: 6px;
+  box-shadow: 4px 4px 0 var(--game-ink, #243025);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lali-step-visual-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lali-interactive-canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+/* VISUAL BOTTOM PILLS (Clean, non-intrusive) */
+.lali-visual-pill-bottom {
+  position: absolute;
+  bottom: 12px;
+  background: rgba(8, 17, 12, 0.92);
+  border: 1px solid var(--game-line, #596a4d);
+  color: var(--game-text, #ebe3c5);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.lali-visual-pill-bottom.danger {
+  border-color: var(--game-danger, #d9685b);
+  color: #fca5a5;
+}
+
+.lali-visual-pill-bottom.warning {
+  border-color: var(--game-accent, #d5b66b);
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-visual-pill-bottom.safe {
+  border-color: var(--game-safe, #7ec794);
+  color: #86efac;
+}
+
+/* STEP 1: CLOUD ALERT */
+.lali-cloud-alert-badge {
+  position: absolute;
+  top: 14px;
+  background: rgba(220, 38, 38, 0.9);
+  color: #fff;
+  border: 2px solid #ef4444;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+  z-index: 5;
+}
+
+/* STEP 2: RADAR PULSE BUTTON */
+.lali-radar-interactive-ctrl {
+  position: absolute;
+  top: 14px;
+  z-index: 10;
+}
+
+.lali-fire-pulse-btn {
+  background: var(--game-panel, #1e3024);
+  border: 2px solid var(--game-accent, #d5b66b);
+  color: var(--game-accent, #d5b66b);
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(213, 182, 107, 0.3);
+  transition: all 0.15s ease;
+}
+
+.lali-fire-pulse-btn:hover {
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  box-shadow: 0 0 18px rgba(213, 182, 107, 0.6);
+  transform: translateY(-1px);
+}
+
+.lali-fire-pulse-btn.firing {
+  background: #38bdf8;
+  border-color: #38bdf8;
+  color: #08110c;
+  box-shadow: 0 0 24px #38bdf8;
+}
+
+/* STEP 3: PHOTO STAGE */
+.lali-photo-stage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lali-photo-toggle-bar {
+  position: absolute;
+  top: 14px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+/* STEP 4: INTERACTIVE SWIPE */
+.story-swipe-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.story-swipe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.story-swipe-clipper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.story-swipe-slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--game-accent, #d5b66b);
+  box-shadow: 0 0 10px var(--game-accent, #d5b66b);
+  pointer-events: none;
+  z-index: 8;
+  transform: translateX(-50%);
+}
+
+.story-swipe-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.curtain-invisible-slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 9;
+  margin: 0;
+}
+
+.lali-radar-pin {
+  position: absolute;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 7;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.lali-radar-pin.cyan-pin {
+  background: rgba(56, 189, 248, 0.92);
+  color: #042f2e;
+  border: 1px solid #38bdf8;
+}
+
+.lali-radar-pin.dark-pin {
+  background: rgba(30, 41, 59, 0.92);
+  color: #94a3b8;
+  border: 1px solid #64748b;
+}
+
+.lali-cursor-readout-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(8, 17, 12, 0.92);
+  border: 1px solid var(--game-line, #596a4d);
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: var(--game-text, #ebe3c5);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* STEP 5: SHADOW TRAP */
+.lali-shadow-stage {
+  width: 100%;
+  height: 100%;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.lali-orbit-toggle-bar {
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.lali-shadow-img {
+  max-height: 270px;
+  max-width: 90%;
+  object-fit: contain;
+  border: 2px solid var(--game-line, #596a4d);
+  border-radius: 4px;
+}
+
+/* STEP 6: HONESTY STAGE */
+.lali-honesty-stage {
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.lali-honesty-question {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--game-accent, #d5b66b);
+  text-align: center;
+}
+
+.lali-choice-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 620px;
+  width: 100%;
+}
+
+.lali-choice-card {
+  background: var(--game-panel, #1e3024);
+  border: 2px solid var(--game-line, #596a4d);
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-choice-card.selected {
+  border-color: var(--game-safe, #7ec794);
+  background: rgba(126, 199, 148, 0.08);
+}
+
+.lali-choice-card.dim {
+  opacity: 0.7;
+}
+
+.lali-choice-card strong {
+  font-size: 0.88rem;
+}
+
+.lali-choice-card p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--game-muted, #b6c0a4);
+}
+
+.lali-card-icon {
+  font-size: 1.3rem;
+  margin-bottom: 2px;
+}
+
+/* STEP 7: MISSION STEPS */
+.lali-mission-stage {
+  width: 100%;
+  height: 100%;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.lali-mission-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-mission-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.lali-mission-card {
+  background: var(--game-panel, #1e3024);
+  border: 2px solid var(--game-line, #596a4d);
+  border-radius: 6px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  box-shadow: 2px 2px 0 var(--game-ink, #243025);
+}
+
+.lali-mission-num {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  font-weight: 800;
+  font-size: 0.75rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lali-mission-title {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--game-text, #ebe3c5);
+  margin-top: 4px;
+}
+
+.lali-mission-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--game-muted, #b6c0a4);
+}
+
+.lali-mission-desc strong {
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-mission-action-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 4px;
+}
+
+/* DIALOGUE BAR (Visual Novel Style) */
+.lali-dialogue-bar {
+  padding: 12px 20px;
+  background: var(--game-panel, #1e3024);
+  border-top: 3px solid var(--game-line, #596a4d);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 120px;
+  flex-shrink: 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.lali-portrait-box {
+  width: 88px;
+  height: 88px;
+  background: var(--game-screen, #14251c);
+  border: 2px solid var(--game-accent, #d5b66b);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 2px 2px 0 var(--game-ink, #243025);
+}
+
+.lali-portrait-canvas {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+}
+
+.lali-portrait-tag {
+  position: absolute;
+  bottom: -6px;
+  background: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
+.lali-dialogue-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lali-step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lali-step-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.lali-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--game-line, #596a4d);
+  transition: all 0.2s ease;
+}
+
+.lali-dot.active {
+  background: var(--game-accent, #d5b66b);
+  transform: scale(1.3);
+}
+
+.lali-dot.done {
+  background: var(--game-safe, #7ec794);
+}
+
+.lali-step-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--game-accent, #d5b66b);
+  letter-spacing: 0.04em;
+}
+
+.lali-speech-text {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  color: var(--game-text, #ebe3c5);
+  font-weight: 600;
+}
+
+.lali-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.lali-replay-voice-btn {
+  background: transparent;
+  border: 1px solid var(--game-line, #596a4d);
+  color: var(--game-muted, #b6c0a4);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.lali-replay-voice-btn:hover {
+  border-color: var(--game-accent, #d5b66b);
+  color: var(--game-text, #ebe3c5);
+}
+
+.lali-nav-btn {
+  background: var(--game-screen, #14251c);
+  border: 2px solid var(--game-line, #596a4d);
+  color: var(--game-text, #ebe3c5);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--game-ink, #243025);
+  transition: all 0.15s ease;
+}
+
+.lali-nav-btn:hover {
+  border-color: var(--game-accent, #d5b66b);
+  color: var(--game-accent, #d5b66b);
+}
+
+.lali-nav-btn.primary {
+  background: var(--game-accent, #d5b66b);
+  border-color: var(--game-accent, #d5b66b);
+  color: var(--game-ink, #243025);
+  box-shadow: 2px 2px 0 var(--game-ink, #243025);
+}
+
+.lali-nav-btn.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}

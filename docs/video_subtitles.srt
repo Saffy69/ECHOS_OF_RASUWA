@@ -1,0 +1,32 @@
+1
+00:00:00,000 --> 00:00:03,200
+When disaster strikes beneath dense monsoon clouds,
+
+2
+00:00:03,200 --> 00:00:06,400
+optical satellites are blind. But Earth's surface never stops dancing.
+
+3
+00:00:06,400 --> 00:00:09,800
+Enter NISAR: NASA and ISRO's L-band radar.
+
+4
+00:00:09,800 --> 00:00:13,500
+We track surface changes across eleven repeat passes at twelve-day orbit cycles.
+
+5
+00:00:13,500 --> 00:00:17,200
+In our interactive supercomputer, drag the swipe wipe to detect slope motion,
+
+6
+00:00:17,200 --> 00:00:21,000
+drape radar observations on 3D terrain, and test physical hypotheses.
+
+7
+00:00:21,000 --> 00:00:26,000
+Transform complex interferometry into an actionable Evidence Request Brief for local community preparedness.
+
+8
+00:00:26,000 --> 00:00:30,000
+Echoes of Rasuwa: Dancing with SAR.
+

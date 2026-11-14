@@ -1,0 +1,40 @@
+{
+  "id": "rasuwa_corridor_t98_diff",
+  "region_id": "rasuwa_nepal",
+  "region_name": "Rasuwa, Nepal (Trishuli / Bhote Koshi Valley Corridor)",
+  "theme": "Himalayan Slope Instability & River Scour",
+  "type": "CALIBRATED_PRODUCT",
+  "layer_type": "backscatter_difference",
+  "product": "NISAR L2 GCOV Backscatter Difference (Delta-Sigma0)",
+  "track": "98",
+  "frame": "16",
+  "direction": "ASCENDING",
+  "mode": "L-SAR",
+  "polarization": "HH",
+  "reference_date": "2026-08-19",
+  "secondary_date": "2026-11-11",
+  "bbox": [
+    85.12,
+    28.08,
+    85.53,
+    28.39
+  ],
+  "width_px": 256,
+  "height_px": 256,
+  "units": "dB (relative backscatter change)",
+  "value_range": [
+    -6.0,
+    6.0
+  ],
+  "interpretation": {
+    "positive_db (cyan)": "Increased roughness / surface deposition (gravel, boulder beds, stripped bedrock)",
+    "negative_db (red/amber)": "Decreased backscatter (smooth water pooling, fine mud drape, geometric shadow)",
+    "near_zero (neutral)": "Stable terrain / vegetation unchanged"
+  },
+  "provenance": "Derived from authentic NASA Earthdata / ASF DAAC NISAR L2 GCOV products",
+  "credit_license": "NASA/JPL-Caltech/ISRO via Alaska Satellite Facility (ASF) DAAC (Open Data Policy)",
+  "local_raster_path": "/nisar-derived/rasuwa_corridor_t98_diff.png",
+  "disclaimer": "Single-geometry Track 98 Ascending pair. Not an early warning or prediction; observational change detection.",
+  "sha256": "30212587276c116f08837e42e2019c029af3a7ee186a892fd2390f72c15d9b39",
+  "file_size_bytes": 141675
+}

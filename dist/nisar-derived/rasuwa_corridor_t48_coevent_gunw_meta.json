@@ -1,0 +1,33 @@
+{
+  "id": "rasuwa_corridor_t48_coevent_gunw",
+  "region_id": "rasuwa_nepal",
+  "region_name": "Rasuwa, Nepal (Trishuli / Bhote Koshi Valley Corridor)",
+  "type": "CALIBRATED_PRODUCT",
+  "product": "NISAR L2 GUNW Co-Event InSAR Pair (Track 48 Descending)",
+  "layer_type": "unwrapped_phase_and_coherence",
+  "granule_id": "NISAR_L2_PR_GUNW_028_048_D_074_029_2000_SH_20260816T125812_20260816T125846_20260828T125812_20260828T125846_P05023_N_F_J_001",
+  "collection": "GUNW",
+  "track": "48",
+  "frame": "74",
+  "direction": "DESCENDING",
+  "look_angle_degrees": 37.0,
+  "heading_degrees": 192.0,
+  "reference_date": "2026-08-16",
+  "secondary_date": "2026-08-28",
+  "spanning_event": "2026-08-26 Debris Flow & Flood",
+  "bbox": [
+    85.12,
+    28.08,
+    85.53,
+    28.39
+  ],
+  "width_px": 256,
+  "height_px": 256,
+  "units": "cm line-of-sight displacement (LOS) / [0, 1] coherence",
+  "geometry_teaching_note": "Opposite look direction to Track 98. Slopes facing East suffer layover on Track 98 but are well-illuminated on Track 48. Dual-orbit observation is critical in high-relief mountain valleys.",
+  "provenance": "Authentic NASA Earthdata / ASF DAAC NISAR L2 GUNW product",
+  "credit_license": "NASA/JPL-Caltech/ISRO via Alaska Satellite Facility (ASF) DAAC (Open Data Policy)",
+  "local_raster_path": "/nisar-derived/rasuwa_corridor_t48_coevent_gunw.png",
+  "sha256": "779f3e9fde1669a54b57169ce00a835e539dc39afb349622726faeb6a11375b9",
+  "file_size_bytes": 168721
+}
